@@ -34,19 +34,29 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 var twoSum = function(nums, target) {
   let myObj = {}
   let myAns = []
-  for(let i = 0; i < nums.length; i++){
-    for( let j = 1; j < nums.length; j++){
-      if(nums[i] + nums[j] === target && i !== j){
-        myObj[i] = i;
-        myObj[j] = j;
-        if(!myAns.includes(i)){
-          myAns.push(myObj[i])
-          myAns.push(myObj[j])
-          return myAns
-        }
-        // myObj.push(i)
-        break;
-      }
+  // for(let i = 0; i < nums.length; i++){
+  //   for( let j = 1; j < nums.length; j++){
+  //     if(nums[i] + nums[j] === target && i !== j){
+  //       myObj[i] = i;
+  //       myObj[j] = j;
+  //       if(!myAns.includes(i)){
+  //         myAns.push(myObj[i])
+  //         myAns.push(myObj[j])
+  //         return myAns
+  //       }
+  //       // myObj.push(i)
+  //       break;
+  //     }
+  //   }
+  // }
+  for(let i = 0; i < nums.length; i++ ){
+    if(myObj[target-nums[i]] !== undefined){
+      myAns.push(myObj[target-nums[i]])
+      myAns.push(i)
+      return myAns
+    }
+    else{
+      myObj[nums[i]] = i;
     }
   }
   return myAns;
@@ -55,4 +65,4 @@ var twoSum = function(nums, target) {
 // Output: [0,1]
 
 
-// console.log(twoSum([2,5,5,11], 10))
+console.log(twoSum([2,5,5,11], 10))
