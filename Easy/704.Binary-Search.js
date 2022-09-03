@@ -18,8 +18,7 @@ You must write an algorithm with O(log n) runtime complexity.
  * @return {number}
  */
 var search = function (nums, target, low = 0, high = nums.length - 1) {
-	let mid = low + Math.floor((high - low) / 2);
-
+	let mid = Math.floor((high + low) / 2);
 	if (low > high) return -1;
 	if (nums[mid] === target) return mid;
 	if (target < nums[mid]) return search(nums, target, low, (high = mid - 1));
