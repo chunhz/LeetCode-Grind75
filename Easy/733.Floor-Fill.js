@@ -8,14 +8,22 @@ var floodFill = function (image, sr, sc, color) {
 };
 
 const helperFunc = (image, sr, sc, color, centerColor) => {
+	// console.log(sr, sc);
 	if (image[sr][sc] === centerColor) {
 		image[sr][sc] = color;
-		if (sr >= 1) helperFunc(image, sr - 1, sc, color, centerColor);
-		if (sc >= 1) helperFunc(image, sr, sc - 1, color, centerColor);
-		if (sr + 1 < image.length)
+		if (sr > 0) {
+			helperFunc(image, sr - 1, sc, color, centerColor);
+		}
+		if (sc > 0) {
+			helperFunc(image, sr, sc - 1, color, centerColor);
+		}
+		if (sr + 1 < image.length) {
 			helperFunc(image, sr + 1, sc, color, centerColor);
-		if (sc + 1 < image[0].length)
+		}
+
+		if (sc + 1 < image[0].length) {
 			helperFunc(image, sr, sc + 1, color, centerColor);
+		}
 	}
 };
 //Input:
