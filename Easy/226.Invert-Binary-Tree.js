@@ -11,13 +11,13 @@
  * @return {TreeNode}
  */
 var invertTree = function (root) {
-	// if root is null return root
-	if (!root) return root;
-	const newTree = newTreeNode();
+  // if root is null return root
+  if (!root) return root;
+  const newTree = newTreeNode();
 
-	newTree.val = root.val;
-	// mirroring the tree, which left of the original tree will now be right
-	newTree.left = invertTree(root.right);
-	newTree.right = invertTree(root.left);
-	return newTree;
+  newTree.val = root.val;
+  // mirroring the tree, which left of the original tree will now be right
+  newTree.left = invertTree(root.right);
+  newTree.right = invertTree(root.left);
+  return newTree;
 };

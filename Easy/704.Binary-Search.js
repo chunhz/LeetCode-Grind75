@@ -18,13 +18,13 @@ You must write an algorithm with O(log n) runtime complexity.
  * @return {number}
  */
 var search = function (nums, target, low = 0, high = nums.length - 1) {
-	let mid = Math.floor((high + low) / 2);
-	if (low > high) return -1;
-	if (nums[mid] === target) return mid;
-	if (target < nums[mid]) return search(nums, target, low, (high = mid - 1));
-	else return search(nums, target, mid + 1, high);
+  const mid = Math.floor((high + low) / 2);
+  if (low > high) return -1;
+  if (nums[mid] === target) return mid;
+  if (target < nums[mid]) return search(nums, target, low, (high = mid - 1));
+  return search(nums, target, mid + 1, high);
 };
-const nums = [-1, 0, 3, 5, 9, 12],
-	target = 9;
+const nums = [-1, 0, 3, 5, 9, 12];
+const target = 9;
 console.log(search(nums, target)); // 4
 console.log(search([-1, 0, 3, 5, 9, 12], 2));

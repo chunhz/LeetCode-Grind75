@@ -1,4 +1,4 @@
-/*Given an integer array nums, return true if any value appears at 
+/* Given an integer array nums, return true if any value appears at
 least twice in the array, and return false if every element is distinct.
 
 Example 1:
@@ -18,15 +18,15 @@ Output: true
  * @param {number[]} nums
  * @return {boolean}
  */
- var containsDuplicate = function(nums) {
-    let obj = {}
-    let count = 1;
-    for(let i of nums){
-        if(!obj[i]){
-            obj[i] = count
-        } else{
-            return true
-        }
+const containsDuplicate = function (nums) {
+  const obj = {};
+  const count = 1;
+  for (const i of nums) {
+    if (!obj[i]) {
+      obj[i] = count;
+    } else {
+      return true;
     }
-    return false;
+  }
+  return false;
 };

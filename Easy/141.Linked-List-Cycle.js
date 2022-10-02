@@ -1,4 +1,4 @@
-/*141. Linked List Cycle
+/* 141. Linked List Cycle
 
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 
@@ -22,14 +22,14 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function (head) {
-	let slow = (fast = head);
-	while (fast && fast.next) {
-		slow = slow.next;
-		fast = fast.next.next;
-		if (slow == fast) return true;
-	}
-	return false;
+const hasCycle = function (head) {
+  let slow = (fast = head);
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow == fast) return true;
+  }
+  return false;
 };
 // Input: head = [3,2,0,-4], pos = 1
 // Output: true

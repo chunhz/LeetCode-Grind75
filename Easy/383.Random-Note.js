@@ -1,10 +1,8 @@
-/*383. Ransom Note
+/* 383. Ransom Note
 
 Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
 
 Each letter in magazine can only be used once in ransomNote.
-
- 
 
 Example 1:
 
@@ -24,20 +22,20 @@ Output: true
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function (ransomNote, magazine) {
-  let obj = {}
-  for (let i = 0; i < magazine.length; i++){
-     obj[magazine[i]] = (obj[i] || 0 ) + 1
+const canConstruct = function (ransomNote, magazine) {
+  const obj = {};
+  for (let i = 0; i < magazine.length; i++) {
+    obj[magazine[i]] = (obj[i] || 0) + 1;
   }
-  for (let j = 0; j < ransomNote.length; j++){
-      console.log(obj)
+  for (let j = 0; j < ransomNote.length; j++) {
+    console.log(obj);
     if (!obj[ransomNote[j]]) return false;
     obj[ransomNote[j]]--;
   }
- 
 
   return true;
- };
-const ransomNote = "aa", magazine = "aab"
-console.log(canConstruct(ransomNote, magazine))
+};
+const ransomNote = 'aa'; const
+  magazine = 'aab';
+console.log(canConstruct(ransomNote, magazine));
 // Output: false
