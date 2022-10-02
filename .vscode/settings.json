@@ -1,0 +1,7 @@
+{
+ "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+ "[json]": {
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+ },
+ "javascript.format.semicolons": "insert"
+}
