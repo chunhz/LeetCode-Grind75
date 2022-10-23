@@ -25,3 +25,17 @@ const isBalanced = function (root) {
   dfs(root);
   return ans;
 };
+/*
+function checkBalanceTree(tree){
+  // have two pointers, one going left, the other right.
+  function helper(tree){
+    if(!tree) return 0;
+    const l = 1 + helper(tree.left); // tree.left // 2
+    const r = 1 + helper(tree.right); // tree.right // 2
+    return Math.max(l, r)
+  }
+	const left = helper(tree.left);
+  const right = helper(tree.right);
+  if(Math.abs(left - right) > 1) return false;
+  return true;
+*/

@@ -36,10 +36,9 @@ Output: 1
 
 const solution = function (isBadVersion) {
   /**
-     * @param {integer} n Total versions
-     * @return {integer} The first bad version
-     */
-
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
   return function (n) {
     let high = n;
     let low = 1;

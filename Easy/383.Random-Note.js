@@ -23,19 +23,17 @@ Output: true
  * @return {boolean}
  */
 const canConstruct = function (ransomNote, magazine) {
-  const obj = {};
-  for (let i = 0; i < magazine.length; i++) {
-    obj[magazine[i]] = (obj[i] || 0) + 1;
+  let obj = {};
+  for (let i of magazine) {
+    obj[i] = (obj[i] || 0) + 1;
   }
   for (let j = 0; j < ransomNote.length; j++) {
-    console.log(obj);
     if (!obj[ransomNote[j]]) return false;
     obj[ransomNote[j]]--;
   }
-
   return true;
 };
-const ransomNote = 'aa'; const
-  magazine = 'aab';
+const ransomNote = 'aa';
+const magazine = 'aab';
 console.log(canConstruct(ransomNote, magazine));
 // Output: false
