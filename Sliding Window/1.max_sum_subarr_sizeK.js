@@ -45,5 +45,7 @@ function max_sub_array_of_size_k(k, arr) {
   }
   return ansMax;
 }
+// time complexity: O(n)
+// space complexity: O(1)
 console.log(max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]));
 console.log(max_sub_array_of_size_k(2, [2, 3, 4, 1, 5]));
