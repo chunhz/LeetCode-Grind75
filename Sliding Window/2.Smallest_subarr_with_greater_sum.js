@@ -54,3 +54,6 @@ console.log(smallest_subarray_sum(7, [2, 1, 5, 2, 3, 2])); // 2
 console.log(smallest_subarray_sum(8, [2, 1, 5, 2, 8])); // 1
 console.log(smallest_subarray_sum(8, [3, 4, 1, 1, 6])); // 3
 console.log(smallest_subarray_sum(10, [3, 12, 1, 1, 6])); //1
+
+
+
