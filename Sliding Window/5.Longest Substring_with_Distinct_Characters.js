@@ -19,19 +19,22 @@ Output: 3
 Explanation: Longest substrings with distinct characters are "abc" & "cde".
 */
 function non_repeat_substring(str) {
-	let obj = {};
+	let obj = new Set();
 	let maxLength = Number.MIN_SAFE_INTEGER;
 	let start = 0;
 	for (let i = 0; i < str.length; i++) {
-		if (!obj[str[i]]) {
-			obj[str[i]] = str[i];
+		if (!obj.has(str[i])) {
+			obj.add(str[i]);
 		} else {
-			for (let i of Object.keys(obj)) {
-				delete obj[i];
-			}
-			obj[str[i]] = str[i];
+			// for (let i of Object.keys(obj)) {
+			// 	delete obj[i];
+			// }
+			obj.clear();
+			// obj[str[i]] = str[i];
+			obj.add(str[i]);
 		}
-		let currLength = Object.keys(obj).length;
+		// let currLength = Object.keys(obj).length;
+		let currLength = obj.size;
 		maxLength = Math.max(maxLength, currLength);
 	}
 	console.log('curr obj', obj);
