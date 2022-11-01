@@ -17,18 +17,15 @@ Output: 1
  * @return {number}
  */
 const maxSubArray = function (nums) {
-  // adding each element in behind, compare the previous subarray
-  let largest = Number.MIN_SAFE_INTEGER;
-  console.log(largest);
-  let sum = 0;
-  console.log(Math.max(sum, largest));
-  for (const i of nums) {
-    if (sum < 0 || i > sum) sum = 0;
-    sum += i;
-    largest = Math.max(sum, largest);
-  }
-
-  return largest;
+	// adding each element in behind, compare the previous subarray
+	let largest = Number.MIN_SAFE_INTEGER;
+	let sum = 0;
+	for (let i of nums) {
+		if (sum < i && sum < 0) sum = 0; // resetting sum;
+		sum += i;
+		largest = Math.max(largest, sum);
+	}
+	return largest;
 };
 
 // Input:

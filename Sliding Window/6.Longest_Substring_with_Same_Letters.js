@@ -32,17 +32,12 @@ function length_of_longest_substring(str, k) {
 		}
 		obj[str[i]] += 1;
 		highFreqChar = Math.max(obj[str[i]], highFreqChar);
-		// console.log('highFreqChar', highFreqChar);
 		if (i - start + 1 - highFreqChar > k) {
 			obj[str[start]] -= 1;
 			start++;
 		}
 		maxLength = Math.max(maxLength, i - start + 1);
 	}
-
-	// console.log('used k', usedK);
-	// console.log('obj', obj);
-	// console.log('max length', maxLength);
 
 	return maxLength;
 }
