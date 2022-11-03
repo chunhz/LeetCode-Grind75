@@ -33,27 +33,29 @@ Check if the current window length is the smallest so far, and if so, remember i
 Subtract the first element of the window from the running sum to shrink the sliding window.
 */
 function smallest_subarray_sum(s, arr) {
-  let localSum = 0;
-  let newarr = [];
-  let newLength = 0;
-  for (let i = 0; i < arr.length; i++) {
-    localSum += arr[i];
-    newarr.push(arr[i]);
+	let localSum = 0;
+	let newLength = Infinity;
+	let start = 0;
+	for (let i = 0; i < arr.length; i++) {
+		localSum += arr[i];
+		while (localSum >= s) {
+			// i - start + 1 = length of remaining Array
+			newLength = Math.min(newLength, i - start + 1);
+			localSum -= arr[start];
+			start++;
+		}
+	}
 
-    while (localSum > s && newarr.length > 1) {
-      let start = newarr.shift();
-      localSum -= start;
-      newLength = newarr.length;
-    }
-  }
-  return newLength;
+	// if (localSum === s) newLength = newarr.length;
+	if (newLength === Infinity) return 0;
+	else return newLength;
 }
 // time complexity: O(n)
 // space complexity: O(1)
-console.log(smallest_subarray_sum(7, [2, 1, 5, 2, 3, 2])); // 2
+console.log(smallest_subarray_sum(11, [1, 2, 3, 4, 5])); // 3
 console.log(smallest_subarray_sum(8, [2, 1, 5, 2, 8])); // 1
 console.log(smallest_subarray_sum(8, [3, 4, 1, 1, 6])); // 3
 console.log(smallest_subarray_sum(10, [3, 12, 1, 1, 6])); //1
-
-
-
+console.log(smallest_subarray_sum(15, [1, 2, 3, 4, 5])); //5
+console.log(smallest_subarray_sum(15, [5, 1, 3, 5, 10, 7, 4, 9, 2, 8])); //2
+console.log(smallest_subarray_sum(5, [2, 3, 1, 1, 1, 1, 1])); //2

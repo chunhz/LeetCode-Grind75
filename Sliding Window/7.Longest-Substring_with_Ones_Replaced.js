@@ -35,7 +35,7 @@ function length_of_longest_substring(arr, k) {
 	tempLength = Object.values(obj)[0];
 	let ones = Object.values(obj)[1];
 	maxLength = Math.max(maxLength, ones + tempLength);
-	// console.log(obj[0], obj[1]);
+	console.log(obj[0], obj[1]);
 	return maxLength;
 }
 console.log(length_of_longest_substring([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2)); //6

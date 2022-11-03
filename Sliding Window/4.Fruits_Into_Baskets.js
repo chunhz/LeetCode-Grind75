@@ -29,21 +29,25 @@ function fruits_into_baskets(fruits) {
 	// while obj.keys.length > K, delete from start index
 	let maxLength = Number.MIN_SAFE_INTEGER;
 	let start = 0;
-	let count = 0;
 	let obj = {};
 	for (let i = 0; i < fruits.length; i++) {
 		if (!obj[fruits[i]]) {
-			obj[fruits[i]] = fruits[i];
+			obj[fruits[i]] = 0;
 		}
+		obj[fruits[i]]++;
 		while (Object.keys(obj).length > 2) {
 			console.log('out of window');
-			delete obj[fruits[start]];
-			count--;
+			let left = fruits[start];
+			obj[left] -= 1;
+			if (obj[left] === 0) delete obj[left];
+			// count--;
+			start++;
 		}
-		count++;
-		maxLength = Math.max(maxLength, count);
+		// count++;
+		maxLength = Math.max(maxLength, i - start + 1);
 	}
 	return maxLength;
 }
 console.log(fruits_into_baskets(['A', 'B', 'C', 'A', 'C'])); //3
 console.log(fruits_into_baskets(['A', 'B', 'C', 'B', 'B', 'C'])); //5
+console.log(fruits_into_baskets([0, 1, 2, 2])); //3
