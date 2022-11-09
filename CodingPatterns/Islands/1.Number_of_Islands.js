@@ -17,46 +17,46 @@ Output: 1
 Explanation: The matrix has only one island. See the highlighted cells below.
 */
 function count_islands_BFS(matrix) {
-	let cols = matrix[0].length;
-	let rows = matrix.length;
-	let ans = 0;
-	// console.log(cols);
-	// console.log(rows);
-	for (let i = 0; i < rows; i++) {
-		// console.log('i', i);
-		for (let j = 0; j < cols; j++) {
-			if (matrix[i][j] === 1) {
-				ans++;
-				visit_island(matrix, i, j);
-			}
-		}
-	}
-	return ans;
+  let cols = matrix[0].length;
+  let rows = matrix.length;
+  let ans = 0;
+  // console.log(cols);
+  // console.log(rows);
+  for (let i = 0; i < rows; i++) {
+    // console.log('i', i);
+    for (let j = 0; j < cols; j++) {
+      if (matrix[i][j] === 1) {
+        ans++;
+        visit_island(matrix, i, j);
+      }
+    }
+  }
+  return ans;
 }
 const visit_island = (matrix, x, y) => {
-	if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) return;
-	if (matrix[x][y] === 0) return;
-	matrix[x][y] = 0;
-	visit_island(matrix, x - 1, y);
-	visit_island(matrix, x + 1, y);
-	visit_island(matrix, x, y - 1);
-	visit_island(matrix, x, y + 1);
+  if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) return;
+  if (matrix[x][y] === 0) return;
+  matrix[x][y] = 0;
+  visit_island(matrix, x - 1, y);
+  visit_island(matrix, x + 1, y);
+  visit_island(matrix, x, y - 1);
+  visit_island(matrix, x, y + 1);
 };
 console.log(
-	count_islands_BFS([
-		[0, 1, 1, 1, 0],
-		[0, 0, 0, 1, 1],
-		[0, 1, 1, 1, 0],
-		[0, 1, 1, 0, 0],
-		[0, 0, 0, 0, 0],
-	]),
+  count_islands_BFS([
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 1],
+    [0, 1, 1, 1, 0],
+    [0, 1, 1, 0, 0],
+    [0, 0, 0, 0, 0],
+  ]),
 ); //
 console.log(
-	count_islands_BFS([
-		[1, 1, 1, 0, 0],
-		[0, 1, 0, 0, 1],
-		[0, 0, 1, 1, 0],
-		[0, 0, 1, 0, 0],
-		[0, 0, 1, 0, 0],
-	]),
+  count_islands_BFS([
+    [1, 1, 1, 0, 0],
+    [0, 1, 0, 0, 1],
+    [0, 0, 1, 1, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 1, 0, 0],
+  ]),
 );
