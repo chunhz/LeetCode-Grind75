@@ -45,13 +45,16 @@ function has_cycle(head) {
   let slow = head,
     fast = head;
   while (fast && fast.next) {
+    // assigning fast to be 2 elements further
     fast = fast.next.next;
+    // assigning slow to be 1 ele further
     slow = slow.next;
-
+    // if fast and slow eventually hit to the same element, that means cycle exists
     if (fast === slow) return true;
   }
   return false;
 }
+// Time Comp: O(n), Space Comp: O(1)
 
 const head = new Node(1);
 head.next = new Node(2);
