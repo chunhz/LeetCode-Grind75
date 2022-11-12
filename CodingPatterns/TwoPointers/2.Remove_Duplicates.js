@@ -18,6 +18,7 @@ function remove_duplicates(arr) {
 
   let i = 0;
   while (i < arr.length) {
+    // check current pointer with pointer on the left
     if (arr[nextNonDuplicate - 1] !== arr[i]) {
       arr[nextNonDuplicate] = arr[i];
       nextNonDuplicate++;
