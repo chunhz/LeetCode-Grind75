@@ -35,14 +35,22 @@ Explanation: The differences between the frequencies of each letter in word1 and
 - 'd' appears 2 times in word1 and 0 times in word2. The difference is 2.
 */
 var checkAlmostEquivalent = function (word1, word2) {
-  let cache = {};
+  let map1 = {};
+  let map2 = {};
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  for (let i of alphabet) {
+    map1[i] = 0;
+    map2[i] = 0;
+  }
   for (let i of word1) {
-    if (!cache[i]) cache[i] = 0;
-    cache[i] += 1;
+    map1[i] += 1;
   }
-  for (let j of word2) {
-    if (!cache[j]) cache[j] = 0;
-    cache[j] += 1;
+  for (let i of word2) {
+    map2[i] += 1;
   }
+  for (let character in map1) {
+    if (Math.abs(map1[character] - map2[character]) > 3) return false;
+  }
+  return true;
 };
 console.log(checkAlmostEquivalent('aaaa', 'bccb'));
