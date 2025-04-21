@@ -54,6 +54,8 @@
 */
 function minHeightBst(array) {
   // Write your code here.
+  // input: sorted array, output: binary tree
+  // take mid value as root
   if(array.length === 0 ) return null;
   const midIndx = Math.floor(array.length/2);
   const midValue = array[midIndx];
